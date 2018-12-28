@@ -18,7 +18,7 @@ namespace dotnetCoreTestRazorLight
                                 .GetManifestResourceStream($"{assembly.GetName().Name}.testTemplates.1_Simple.cshtml")
                                    ).ReadToEnd();
 
-            string result = await lib.RazorUtility.renderTemplate(template, "simple1", new Models.Simple1
+            string result = await dotnetStandardRazorLightUtility.RazorUtility.renderTemplate(template, "simple1", new Models.Simple1
             {
                 Prop1="Hello World!",
                 Prop2 = "United States"

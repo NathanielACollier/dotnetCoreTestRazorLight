@@ -22,4 +22,8 @@
     <PackageReference Include="RazorLight" Version="2.0.0-beta1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\dotnetStandardRazorLightUtility\dotnetStandardRazorLightUtility.csproj" />
+  </ItemGroup>
+
 </Project>

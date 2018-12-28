@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RazorLight;
 
-namespace dotnetCoreTestRazorLight.lib
+namespace dotnetStandardRazorLightUtility
 {
     public static class RazorUtility
     {
