@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace dotnetCoreTestRazorLight
 {
@@ -8,7 +9,7 @@ namespace dotnetCoreTestRazorLight
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public async Task TestMethod1()
         {
             // dotnet core embeded resources
             var assembly = typeof(UnitTest1).GetTypeInfo().Assembly;
@@ -16,6 +17,12 @@ namespace dotnetCoreTestRazorLight
             string template = new StreamReader(assembly
                                 .GetManifestResourceStream($"{assembly.GetName().Name}.testTemplates.1_Simple.cshtml")
                                    ).ReadToEnd();
+
+            string result = await lib.RazorUtility.renderTemplate(template, "simple1", new Models.Simple1
+            {
+                Prop1="Hello World!",
+                Prop2 = "United States"
+            });
         }
     }
 }
