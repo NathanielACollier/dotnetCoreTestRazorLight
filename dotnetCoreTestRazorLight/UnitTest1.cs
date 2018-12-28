@@ -14,7 +14,7 @@ namespace dotnetCoreTestRazorLight
             var assembly = typeof(UnitTest1).GetTypeInfo().Assembly;
             //   + https://stackoverflow.com/questions/38762368/embedded-resource-in-net-core-libraries
             string template = new StreamReader(assembly
-                                .GetManifestResourceStream("dotnetCoreTestRazorLight.testTemplates.1_Simple.cshtml")
+                                .GetManifestResourceStream($"{assembly.GetName().Name}.testTemplates.1_Simple.cshtml")
                                    ).ReadToEnd();
         }
     }
