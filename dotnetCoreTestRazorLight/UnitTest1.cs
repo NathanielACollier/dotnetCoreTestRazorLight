@@ -11,12 +11,8 @@ namespace dotnetCoreTestRazorLight
         [TestMethod]
         public async Task TestMethod1()
         {
-            // dotnet core embeded resources
-            var assembly = typeof(UnitTest1).GetTypeInfo().Assembly;
-            //   + https://stackoverflow.com/questions/38762368/embedded-resource-in-net-core-libraries
-            string template = new StreamReader(assembly
-                                .GetManifestResourceStream($"{assembly.GetName().Name}.testTemplates.1_Simple.cshtml")
-                                   ).ReadToEnd();
+            string template = dotnetStandardRazorLightUtility.EmbededResourceUtility
+                                .ReadAsString(typeof(UnitTest1), "testTemplates.1_Simple.cshtml");
 
             string result = await dotnetStandardRazorLightUtility.RazorUtility.renderTemplate(template, "simple1", new Models.Simple1
             {
